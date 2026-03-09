@@ -1,6 +1,8 @@
-
 def feldolgozas(kerdes):
     print("feldolgozas alatt: " + kerdes)
+
+    if kerdes[-1] == "?":
+        print("Ez bizony egy kérdés")
 
     szamjegyek = dict()
     for betu in kerdes:
@@ -10,15 +12,19 @@ def feldolgozas(kerdes):
             else:
                 szamjegyek[betu] = 1
 
+    if szamjegyek == {}:
+        print("Ebben egy számjegy sem volt.")
+
+    pontok_szama = kerdes.count(".")
+    print("A kérdés " + str(pontok_szama) + " darab pontot tartalmazott.")
+
     return szamjegyek
 
-
-    #return kerdes[::-1]
 
 while True:
     kerdes = input("Kerdes: ")
 
-    if kerdes == "exit":
+    if kerdes == "exit" or "quit":
         print("Bye")
         break
 
@@ -29,6 +35,3 @@ while True:
     print("Válasz: " + str(valasz))
 
 print("VEGE")
-
-
-
